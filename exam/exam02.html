@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.js"></script>
+</head>
+<body>
+      
+    <h1>롤오버 이미지</h1>
+
+    <hr>
+
+    <img src="../images/cat01.jpg" data-no="1" name="cat1" class="cat">
+    <img src="../images/cat02.jpg" data-no="2" name="cat2" class="cat">
+    <img src="../images/cat03.jpg" data-no="3" name="cat3" class="cat">
+
+    <script>
+        //DOM
+        // var cat = document.getElementsByClassName("cat");
+
+        // for(var i =0; i<cat.length; i++){
+
+        //     cat[i].onmouseover = function(){
+
+        //         event.srcElement.src = "../images/dog0" + event.srcElement.dataset["no"] + ".jpg";
+
+        //     }
+            
+        //     cat[i].onmouseout = function(){
+
+        //         event.srcElement.src = "../images/cat0" + event.srcElement.dataset["no"] + ".jpg";
+
+        //     }
+        // }
+
+        
+        //jQuery
+
+        $(".cat").on("mouseenter", function(){
+
+            $(this).attr("src", "../images/dog0" + event.srcElement.dataset["no"] + ".jpg");
+
+        });
+        $(".cat").on("mouseout", function(){
+
+        $(this).attr("src", "../images/cat0" + event.srcElement.dataset["no"] + ".jpg");
+
+        });
+
+
+    </script>
+</body>
+</html>
