@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="js/jquery-1.12.4.js"></script>
+
     <style>
         #tbl1 {
             border: 1px solid #999;
@@ -34,6 +34,7 @@
         
 
     </style>
+        <script src="../js/jquery-1.12.4.js"></script>
 </head>
 <body>
     <h1>롤오버 이미지 + 새창 띄우기</h1>
@@ -41,17 +42,48 @@
     <table id="tbl1">
         
        <tr>
-           <td><a href="" data-no="1" id="n1">강아지1</a></td>
-           <td><a href="" data-no="2" id="n1">강아지2</a></td>
-           <td><a href="" data-no="3" id="n1">강아지3</a></td>
-           <td><a href="" data-no="4" id="n1">강아지4</a></td>
-           <td><a href="" data-no="5" id="n1">강아지5</a></td>
+           <td>
+            <a href="" data-no="1" class="dog" id="n1">강아지1</a>
+           <a href="" data-no="2" class="dog" id="n2">강아지2</a>
+           <a href="" data-no="3" class="dog" id="n3">강아지3</a>
+           <a href="" data-no="4" class="dog" id="n4">강아지4</a>
+           <a href="" data-no="5" class="dog" id="n5">강아지5</a>
+            </td>
+
+            <td><img src="../images/dog01.jpg" alt="" id="img"></td>
        </tr>
 
-       <tr></tr>
     </table>     
 
     <script> 
+
+        // var dog = document.getElementsByClassName("dog");
+
+        // for(var i=0; i<dog.length; i++){
+
+        //     dog[i].onmouseover = function(){
+
+        //         document.getElementById("img").src = "../images/dog0"+event.srcElement.dataset["no"]+".jpg";
+
+        //     };  
+
+        //     dog[i].onclick = function(){
+        //         window.open("../images/dog0"+event.srcElement.dataset["no"]+"_big.jpg","big","width=1500, height=1050" )
+        //     };
+
+        // }
+
+        
+        $(".dog").on("mouseover", function(){
+
+            $("#img").attr("src","../images/dog0"+ $(this).data("no")+".jpg");
+
+        });
+
+        $(".dog").on("click", function(){
+            window.open("../images/dog0"+$(this).data("no")+"_big.jpg","big","width=1500, height=1050" );
+        });
+
     </script>
 </body>
 </html>
